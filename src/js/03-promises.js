@@ -17,7 +17,7 @@ function onClick() {
   for (let i = 1; i <= amount; i += 1) {
     position += i;
     delay += step;
-    createPromise(position, delay)
+    createPromise({ position, delay })
       .then((position, delay) => {
         console.log(`✅ Fulfilled promise ${position} in ${delay}ms`);
       })
@@ -27,7 +27,7 @@ function onClick() {
   }
 }
 
-function createPromise(position, delay) {
+function createPromise({ position, delay }) {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       const shouldResolve = Math.random() > 0.3;
