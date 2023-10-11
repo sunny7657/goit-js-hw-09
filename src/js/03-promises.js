@@ -13,7 +13,7 @@ function onClick(event) {
   let delay = firstDelay;
   for (let i = 1; i <= amount; i += 1) {
     position += 1;
-    delay += step;
+
     createPromise(position, delay)
       .then(value => {
         console.log(value);
@@ -21,6 +21,8 @@ function onClick(event) {
       .catch(error => {
         console.log(error);
       });
+
+    delay += step;
   }
 }
 
